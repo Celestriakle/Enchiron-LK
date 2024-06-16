@@ -73,7 +73,7 @@ class CriterionService extends Service
      */
     private function handleSort($sort, $model) {
         $ids = explode(',', $sort);
-        $steps = $model::whereIn('id', $ids)->orderByRaw(DB::raw('FIELD(id, '.implode(',', $ids).')'))->get();
+        $steps = $model::whereIn('id', $ids)->orderBy(DB::raw('FIELD(id, '.implode(',', $ids).')'))->get();
 
         if(count($steps) != count($ids)) throw new \Exception("Invalid step included in sorting order.");
 
