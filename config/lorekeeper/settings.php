@@ -36,7 +36,7 @@ return [
     | site wherever the name needs to be displayed.
     |
     */
-    'site_name'                                         => 'Lorekeeper',
+    'site_name'                                         => 'Enchiron',
 
     /*
     |--------------------------------------------------------------------------
@@ -48,7 +48,7 @@ return [
     | It is not, however, displayed on the site itself. This should be kept short and snappy!
     |
     */
-    'site_desc'                                         => 'A Lorekeeper ARPG',
+    'site_desc'                                         => 'Enchiron: A Fantasy ARPG',
 
     /*
     |--------------------------------------------------------------------------
@@ -279,7 +279,7 @@ return [
     | 'gallery_images_format' => null,
     |
     */
-    'gallery_images_cap'    => 0,
+    'gallery_images_cap'    => 2000,
     'gallery_images_format' => null,
 
     /*
@@ -328,7 +328,7 @@ return [
     |
     */
 
-    'allow_username_changes'                            => 0,
+    'allow_username_changes'                            => 1,
     'username_change_cooldown'                          => 30,
 
     /*
