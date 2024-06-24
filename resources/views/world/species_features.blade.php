@@ -19,6 +19,7 @@
                     @endif
                     {!! isset($categories[$categoryId]) ? '<a href="' . $categories[$categoryId]->searchUrl . '">' . $categories[$categoryId]->name . '</a>' : 'Miscellaneous' !!}
                 </h5>
+                <span class="px-3 pt-3">{!! isset($categories[$categoryId]) ? $categories[$categoryId]->parsed_description : '' !!}</span>
                 <div class="card-body inventory-body">
                     @foreach ($categoryFeatures->chunk(4) as $chunk)
                         <div class="row mb-3">
