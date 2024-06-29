@@ -9,8 +9,8 @@ use App\Models\Species\Subtype;
 use Illuminate\Support\Facades\DB;
 
 class Feature extends Model {
-    protected $appends = array('simpleName', 'url');
-    
+    protected $appends = ['simpleName', 'url'];
+
     /**
      * The attributes that are mass assignable.
      *
@@ -208,10 +208,13 @@ class Feature extends Model {
     **********************************************************************************************/
 
     public function getSimpleNameAttribute() {
-        if (!isset($this->rarity)) return $this->name;
-        return '<span style="color: #' . $this->rarity->color . ';">' . $this->name . '</span>';
+        if (!isset($this->rarity)) {
+            return $this->name;
+        }
+
+        return '<span style="color: #'.$this->rarity->color.';">'.$this->name.'</span>';
     }
-    
+
     /**
      * Displays the model's name, linked to its encyclopedia page.
      *
