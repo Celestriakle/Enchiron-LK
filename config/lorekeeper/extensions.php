@@ -75,7 +75,7 @@ return [
     ],
 
     // Organised Traits Dropdown - Draginraptor
-    'organised_traits_dropdown'            => 0,
+    'organised_traits_dropdown'            => 1,
 
     // Previous & Next buttons on Character pages - Speedy
     // Adds buttons linking to the previous character as well as the next character on all character pages.

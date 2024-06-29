@@ -54,6 +54,7 @@
             $existingFeatures.find('.selectize').selectize({
                 render: {
                     item: featureSelectedRender
+                    option: featureItemRender,
                 }
             });
         @else
@@ -68,7 +69,8 @@
             @if (config('lorekeeper.extensions.organised_traits_dropdown'))
                 $clone.find('.selectize').selectize({
                     render: {
-                        item: featureSelectedRender
+                        item: featureSelectedRender,
+                        option: featureItemRender,
                     }
                 });
             @else
@@ -78,7 +80,11 @@
         });
 
         function featureSelectedRender(item, escape) {
-            return '<div><span>' + escape(item["text"].trim()) + ' (' + escape(item["optgroup"].trim()) + ')' + '</span></div>';
+            return '<div><span>' + item["text"].trim() + ' (' + escape(item["optgroup"].trim()) + ')' + '</span></div>';
+        }
+
+        function featureItemRender(item) {
+            return '<div class="option" data-selectable="" data-value="' + item["value"] + '"><span>' + item["text"].trim() + '</span></div>';
         }
 
         function addRemoveListener($node) {
