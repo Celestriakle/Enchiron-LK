@@ -9,6 +9,8 @@ use App\Models\Species\Subtype;
 use Illuminate\Support\Facades\DB;
 
 class Feature extends Model {
+    protected $appends = ['simpleName', 'url'];
+
     /**
      * The attributes that are mass assignable.
      *
@@ -205,6 +207,14 @@ class Feature extends Model {
 
     **********************************************************************************************/
 
+    public function getSimpleNameAttribute() {
+        if (!isset($this->rarity)) {
+            return $this->name;
+        }
+
+        return '<span style="color: #'.$this->rarity->color.';">'.$this->name.'</span>';
+    }
+
     /**
      * Displays the model's name, linked to its encyclopedia page.
      *
@@ -305,7 +315,7 @@ class Feature extends Model {
         if (config('lorekeeper.extensions.organised_traits_dropdown')) {
             $sorted_feature_categories = collect(FeatureCategory::all()->where('is_visible', '>=', $visibleOnly)->sortBy('sort')->pluck('name')->toArray());
 
-            $grouped = self::where('is_visible', '>=', $visibleOnly)->select('name', 'id', 'feature_category_id')->with('category')->orderBy('name')->get()->keyBy('id')->groupBy('category.name', $preserveKeys = true)->toArray();
+            $grouped = self::where('is_visible', '>=', $visibleOnly)->select('name', 'id', 'feature_category_id', 'rarity_id')->with('category')->orderBy('name')->get()->keyBy('id')->groupBy('category.name', $preserveKeys = true)->toArray();
             if (isset($grouped[''])) {
                 if (!$sorted_feature_categories->contains('Miscellaneous')) {
                     $sorted_feature_categories->push('Miscellaneous');
@@ -319,7 +329,7 @@ class Feature extends Model {
 
             foreach ($grouped as $category => $features) {
                 foreach ($features as $id  => $feature) {
-                    $grouped[$category][$id] = $feature['name'];
+                    $grouped[$category][$id] = $feature['simpleName'];
                 }
             }
             $features_by_category = $sorted_feature_categories->map(function ($category) use ($grouped) {
@@ -328,7 +338,7 @@ class Feature extends Model {
 
             return $features_by_category;
         } else {
-            return self::where('is_visible', '>=', $visibleOnly)->orderBy('name')->pluck('name', 'id')->toArray();
+            return self::where('is_visible', '>=', $visibleOnly)->orderBy('name')->get()->pluck('simpleName', 'id');
         }
     }
 }
