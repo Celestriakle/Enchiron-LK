@@ -53,7 +53,7 @@
         @if (config('lorekeeper.extensions.organised_traits_dropdown'))
             $existingFeatures.find('.selectize').selectize({
                 render: {
-                    item: featureSelectedRender
+                    item: featureSelectedRender,
                     option: featureItemRender,
                 }
             });
