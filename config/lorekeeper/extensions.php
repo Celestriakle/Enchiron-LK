@@ -20,21 +20,6 @@ return [
     */
 
     // Navbar News Notif - Juni
-<<<<<<< HEAD
-    'navbar_news_notif'                    => 1,
-
-    // Species Trait Index - Mercury
-    'species_trait_index'                  => [
-        'enable'       => 1,
-        'trait_modals' => 1, // Enables modals when you click on a trait for more info instead of linking to the traits page - Moif
-    ],
-
-    // Character Status Badges - Juni
-    'character_status_badges'              => 1,
-
-    // Character TH Profile Link - Juni
-    'character_TH_profile_link'            => 1,
-=======
     'navbar_news_notif' => 0,
 
     // Species Trait Index - Mercury
@@ -48,21 +33,14 @@ return [
 
     // Character TH Profile Link - Juni
     'character_TH_profile_link' => 0,
->>>>>>> 30ef9a9e3ce6120455517ca79bce70458bfbc49e
 
     // Design Update Voting - Mercury
     'design_update_voting' => 0,
 
     // Item Entry Expansion - Mercury
-<<<<<<< HEAD
-    'item_entry_expansion'                 => [
-        'extra_fields'    => 1,
-        'resale_function' => 1,
-=======
     'item_entry_expansion' => [
         'extra_fields'    => 0,
         'resale_function' => 0,
->>>>>>> 30ef9a9e3ce6120455517ca79bce70458bfbc49e
         'loot_tables'     => [
             // Adds the ability to use either rarity criteria for items or item categories with rarity criteria in loot tables. Note that disabling this does not apply retroactively.
             'enable'              => 1,
@@ -71,17 +49,10 @@ return [
     ],
 
     // Group Traits By Category - Uri
-<<<<<<< HEAD
-    'traits_by_category'                   => 1,
-
-    // Scroll To Top - Uri
-    'scroll_to_top'                        => 1, // 1 - On, 0 - off
-=======
     'traits_by_category' => 0,
 
     // Scroll To Top - Uri
     'scroll_to_top' => 0, // 1 - On, 0 - off
->>>>>>> 30ef9a9e3ce6120455517ca79bce70458bfbc49e
 
     // Character Reward Expansion - Uri
     'character_reward_expansion' => [
@@ -91,17 +62,6 @@ return [
 
     // MYO Image Hide/Remove - Mercury
     // Adds an option when approving MYO submissions to hide or delete the MYO placeholder image
-<<<<<<< HEAD
-    'remove_myo_image'                     => 1,
-
-    // Auto-populate New Image Traits - Mercury
-    // Automatically adds the traits present on a character's active image to the list when uploading a new image for an extant character.
-    'autopopulate_image_features'          => 1,
-
-    // Staff Rewards - Mercury
-    'staff_rewards'                        => [
-        'enabled'     => 1,
-=======
     'remove_myo_image' => 0,
 
     // Auto-populate New Image Traits - Mercury
@@ -111,16 +71,11 @@ return [
     // Staff Rewards - Mercury
     'staff_rewards' => [
         'enabled'     => 0,
->>>>>>> 30ef9a9e3ce6120455517ca79bce70458bfbc49e
         'currency_id' => 1,
     ],
 
     // Organised Traits Dropdown - Draginraptor
-<<<<<<< HEAD
-    'organised_traits_dropdown'            => 1,
-=======
     'organised_traits_dropdown' => 0,
->>>>>>> 30ef9a9e3ce6120455517ca79bce70458bfbc49e
 
     // Previous & Next buttons on Character pages - Speedy
     // Adds buttons linking to the previous character as well as the next character on all character pages.
