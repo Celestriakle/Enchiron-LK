@@ -8,14 +8,24 @@
     {!! breadcrumbs(['gallery' => 'gallery', $submission->gallery->displayName => 'gallery/'.$submission->gallery->id, $submission->title => 'gallery/view/'.$submission->id, 'Log Details' => 'gallery/queue/'.$submission->id ]) !!}
 
     <h1>Log Details
+<<<<<<< HEAD
         <span class="float-right badge badge-{{ $submission->status == 'Pending' ? 'secondary' : ($submission->status == 'Accepted' ? 'success' : 'danger') }}">{{ $submission->collaboratorApproved ? $submission->status : 'Pending Collaborator Approval' }}</span>
+=======
+        <span
+            class="float-right badge badge-{{ $submission->status == 'Pending' ? 'secondary' : ($submission->status == 'Accepted' ? 'success' : 'danger') }}">{{ $submission->collaboratorApproval ? $submission->status : 'Pending Collaborator Approval' }}</span>
+>>>>>>> 30ef9a9e3ce6120455517ca79bce70458bfbc49e
     </h1>
 
     @include('galleries._queue_submission', ['key' => 0])
 
     <div class="row">
+<<<<<<< HEAD
         <div class="col-md">
             @if ($submission->gallery->criteria)
+=======
+        <div class="col col-md">
+            @if (Settings::get('gallery_submissions_reward_currency') && $submission->gallery->currency_enabled)
+>>>>>>> 30ef9a9e3ce6120455517ca79bce70458bfbc49e
                 <div class="card mb-4">
                     <div class="card-header">
                         <h5> Award Info <a class="small inventory-collapse-toggle collapse-toggle {{ $submission->status == 'Accepted' ? '' : 'collapsed' }}" href="#currencyForm" data-toggle="collapse">Show</a></h5>
@@ -105,10 +115,35 @@
                         @else
                             <p>This submission is not eligible for currency awards{{ $submission->status == 'Pending' ? ' yet-- it must be accepted first' : '' }}.</p>
                         @endif
+<<<<<<< HEAD
                         @if (isset($totals) && count($totals) > 0)
                             <hr/>
                             <div id="totals">
                                 @include('galleries._submission_totals', ['totals' => $totals, 'collaboratorsCount' => $collaboratorsCount])
+=======
+                        <hr />
+                        @if (isset($submission->data['total']))
+                            <h6>Form Responses:</h6>
+                            <div class="row mb-2">
+                                @foreach ($submission->data['currencyData'] as $key => $data)
+                                    <div class="col-md-3 text-center">
+                                        @if (isset($data) && isset(config('lorekeeper.group_currency_form')[$key]))
+                                            <strong>{{ config('lorekeeper.group_currency_form')[$key]['name'] }}:</strong><br />
+                                            @if (config('lorekeeper.group_currency_form')[$key]['type'] == 'choice')
+                                                @if (isset(config('lorekeeper.group_currency_form')[$key]['multiple']) && config('lorekeeper.group_currency_form')[$key]['multiple'] == 'true')
+                                                    @foreach ($data as $answer)
+                                                        {{ config('lorekeeper.group_currency_form')[$key]['choices'][$answer] ?? '-' }}<br />
+                                                    @endforeach
+                                                @else
+                                                    {{ config('lorekeeper.group_currency_form')[$key]['choices'][$data] }}
+                                                @endif
+                                            @else
+                                                {{ config('lorekeeper.group_currency_form')[$key]['type'] == 'checkbox' ? (config('lorekeeper.group_currency_form')[$key]['value'] == $data ? 'True' : 'False') : $data }}
+                                            @endif
+                                        @endif
+                                    </div>
+                                @endforeach
+>>>>>>> 30ef9a9e3ce6120455517ca79bce70458bfbc49e
                             </div>
                         @endif
                     </div>
@@ -134,17 +169,17 @@
                 </div>
             </div>
         </div>
-        @if (Auth::user()->hasPower('manage_submissions') && $submission->collaboratorApproved)
-            <div class="col-md-5">
+        @if (Auth::user()->hasPower('manage_submissions') && $submission->collaboratorApproval)
+            <div class="col-12 col-md-5">
                 <div class="card mb-4">
                     <div class="card-header">
                         <h5>[Admin] Vote Info</h5>
                     </div>
                     <div class="card-body">
-                        @if (isset($submission->vote_data) && $submission->voteData->count())
-                            @foreach ($submission->voteData as $voter => $vote)
+                        @if ($submission->getVoteData()['raw']->count())
+                            @foreach ($submission->getVoteData(1)['raw'] as $vote)
                                 <li>
-                                    {!! App\Models\User\User::find($voter)->displayName !!} {{ $voter == Auth::user()->id ? '(you)' : '' }}: <span {!! $vote == 2 ? 'class="text-success">Accept' : 'class="text-danger">Reject' !!}</span>
+                                    {!! $vote['user']->displayName !!} {{ $vote['user']->id == Auth::user()->id ? '(you)' : '' }}: <span {!! $vote['vote'] == 2 ? 'class="text-success">Accept' : 'class="text-danger">Reject' !!}</span>
                                 </li>
                             @endforeach
                         @else

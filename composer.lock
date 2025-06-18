@@ -4,10 +4,11 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ac16e377cc2e367f3e2c2d2e9a64634a",
+    "content-hash": "c55171da67e589f3576e01d21cac6c5a",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
+<<<<<<< HEAD
             "version": "v3.0.0",
             "source": {
                 "type": "git",
@@ -18,6 +19,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/Bacon/BaconQrCode/zipball/510de6eca6248d77d31b339d62437cc995e2fb41",
                 "reference": "510de6eca6248d77d31b339d62437cc995e2fb41",
+=======
+            "version": "v3.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Bacon/BaconQrCode.git",
+                "reference": "f9cc1f52b5a463062251d666761178dbdb6b544f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Bacon/BaconQrCode/zipball/f9cc1f52b5a463062251d666761178dbdb6b544f",
+                "reference": "f9cc1f52b5a463062251d666761178dbdb6b544f",
+>>>>>>> 30ef9a9e3ce6120455517ca79bce70458bfbc49e
                 "shasum": ""
             },
             "require": {
@@ -56,9 +69,15 @@
             "homepage": "https://github.com/Bacon/BaconQrCode",
             "support": {
                 "issues": "https://github.com/Bacon/BaconQrCode/issues",
+<<<<<<< HEAD
                 "source": "https://github.com/Bacon/BaconQrCode/tree/v3.0.0"
             },
             "time": "2024-04-18T11:16:25+00:00"
+=======
+                "source": "https://github.com/Bacon/BaconQrCode/tree/v3.0.1"
+            },
+            "time": "2024-10-01T13:55:55+00:00"
+>>>>>>> 30ef9a9e3ce6120455517ca79bce70458bfbc49e
         },
         {
             "name": "brick/math",
@@ -1881,6 +1900,7 @@
         },
         {
             "name": "laravel/fortify",
+<<<<<<< HEAD
             "version": "v1.21.3",
             "source": {
                 "type": "git",
@@ -1891,6 +1911,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/laravel/fortify/zipball/a725684d17959c4750f3b441ff2e94ecde7793a1",
                 "reference": "a725684d17959c4750f3b441ff2e94ecde7793a1",
+=======
+            "version": "v1.25.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/fortify.git",
+                "reference": "ee35e5b8ea25cc51f8323e27a839283becd44160"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/fortify/zipball/ee35e5b8ea25cc51f8323e27a839283becd44160",
+                "reference": "ee35e5b8ea25cc51f8323e27a839283becd44160",
+>>>>>>> 30ef9a9e3ce6120455517ca79bce70458bfbc49e
                 "shasum": ""
             },
             "require": {
@@ -1909,13 +1941,13 @@
             },
             "type": "library",
             "extra": {
-                "branch-alias": {
-                    "dev-master": "1.x-dev"
-                },
                 "laravel": {
                     "providers": [
                         "Laravel\\Fortify\\FortifyServiceProvider"
                     ]
+                },
+                "branch-alias": {
+                    "dev-master": "1.x-dev"
                 }
             },
             "autoload": {
@@ -1942,7 +1974,11 @@
                 "issues": "https://github.com/laravel/fortify/issues",
                 "source": "https://github.com/laravel/fortify"
             },
+<<<<<<< HEAD
             "time": "2024-05-08T18:07:38+00:00"
+=======
+            "time": "2025-01-17T15:17:57+00:00"
+>>>>>>> 30ef9a9e3ce6120455517ca79bce70458bfbc49e
         },
         {
             "name": "laravel/framework",
@@ -10066,12 +10102,12 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {},
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
         "php": "^8.1"
     },
-    "platform-dev": [],
+    "platform-dev": {},
     "plugin-api-version": "2.6.0"
 }

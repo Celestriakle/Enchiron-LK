@@ -49,6 +49,7 @@
     @foreach ($items as $item)
         <div class="card mb-3">
             <div class="card-body">
+<<<<<<< HEAD
                 <?php
                 $shops = App\Models\Shop\Shop::where(function ($shops) {
                     if (Auth::check() && Auth::user()->isStaff) {
@@ -66,6 +67,9 @@
                     ->get();
                 ?>
                 @include('world._item_entry', ['imageUrl' => $item->imageUrl, 'name' => $item->displayName, 'description' => $item->parsed_description, 'idUrl' => $item->idUrl, 'shops' => $shops])
+=======
+                @include('world._item_entry', ['imageUrl' => $item->imageUrl, 'name' => $item->displayName, 'description' => $item->parsed_description, 'idUrl' => $item->idUrl])
+>>>>>>> 30ef9a9e3ce6120455517ca79bce70458bfbc49e
             </div>
         </div>
     @endforeach

@@ -49,6 +49,7 @@
     <script src="{{ asset('js/jquery.tinymce.min.js') }}"></script>
     <script src="{{ asset('js/lightbox.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap-colorpicker.min.js') }}"></script>
+    <script src="{{ asset('js/bs-custom-file-input.min.js') }}"></script>
     <script src="{{ asset('js/selectize.min.js') }}"></script>
     <script src="{{ asset('js/jquery-ui-timepicker-addon.js') }}"></script>
     <script src="{{ asset('js/croppie.min.js') }}"></script>
@@ -78,7 +79,7 @@
     <link href="{{ asset('css/selectize.bootstrap4.css') }}" rel="stylesheet">
 
     @if (file_exists(public_path() . '/css/custom.css'))
-        <link href="{{ asset('css/custom.css') . '?v=' . filemtime(public_path('css/lorekeeper.css')) }}" rel="stylesheet">
+        <link href="{{ asset('css/custom.css') . '?v=' . filemtime(public_path('css/custom.css')) }}" rel="stylesheet">
     @endif
 
     @include('feed::links')
@@ -145,6 +146,12 @@
         @yield('scripts')
         @include('layouts._pagination_js')
         <script>
+            $(document).on('focusin', function(e) {
+                if ($(e.target).closest(".tox-tinymce, .tox-tinymce-aux, .moxman-window, .tam-assetmanager-root").length) {
+                    e.stopImmediatePropagation();
+                }
+            });
+
             $(function() {
                 $('[data-toggle="tooltip"]').tooltip({
                     html: true
@@ -168,6 +175,7 @@
                     spoiler_caption: 'Toggle Spoiler',
                     target_list: false
                 });
+                bsCustomFileInput.init();
                 var $mobileMenuButton = $('#mobileMenuButton');
                 var $sidebar = $('#sidebar');
                 $('#mobileMenuButton').on('click', function(e) {
