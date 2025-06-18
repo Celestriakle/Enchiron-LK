@@ -79,6 +79,9 @@
                             <a class="dropdown-item" href="{{ url('trades/open') }}">
                                 Trades
                             </a>
+                            <a class="dropdown-item" href="{{ url('generators') }}">
+                                Random Generators
+                            </a>
                         </div>
                     </li>
                 @endif

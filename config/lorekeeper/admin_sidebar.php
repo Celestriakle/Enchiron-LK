@@ -195,9 +195,15 @@ return [
                 'url'  => 'admin/data/items',
             ],
             [
+<<<<<<< HEAD
                 'name' => 'Criteria Rewards',
                 'url' => 'admin/data/criteria'
             ]
+=======
+                'name' => 'Random Generators',
+                'url'  => 'admin/data/random',
+            ],
+>>>>>>> 918c71fa315805330162cdd14bb1feaedcb8530e
         ],
     ],
     'Raffles'    => [
